@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מחשבון מחיר רכב - Car Price Predictor</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚗 מחשבון מחיר רכב</h1>
+            <p class="subtitle">חיזוי מחיר רכב מבוסס בינה מלאכותית</p>
+        </header>
+
+        <div class="stats-bar" id="statsBar">
+            <div class="stat-item">
+                <span class="stat-label">סה"כ רכבים במערכת:</span>
+                <span class="stat-value" id="totalCars">-</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">מותגים:</span>
+                <span class="stat-value" id="brandsCount">-</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">טווח מחירים:</span>
+                <span class="stat-value" id="priceRange">-</span>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="form-card">
+                <h2>פרטי הרכב</h2>
+                <form id="carForm">
+                    <div class="form-group">
+                        <label for="brand">יצרן *</label>
+                        <select id="brand" name="brand" required>
+                            <option value="">בחר יצרן...</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="model">דגם *</label>
+                        <select id="model" name="model" required disabled>
+                            <option value="">בחר דגם...</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="year">שנת ייצור *</label>
+                        <select id="year" name="year" required disabled>
+                            <option value="">בחר שנה...</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="mileage">קילומטראז' (ק"מ)</label>
+                            <input type="number" id="mileage" name="mileage_km" value="100000"
+                                   min="0" max="500000" step="1000">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="hand">יד</label>
+                            <select id="hand" name="hand">
+                                <option value="1">יד ראשונה</option>
+                                <option value="2">יד שנייה</option>
+                                <option value="3">יד שלישית</option>
+                                <option value="4">יד רביעית</option>
+                                <option value="5">יד חמישית</option>
+                                <option value="6">יד שישית</option>
+                                <option value="7">יד שביעית</option>
+                                <option value="8">יד שמינית+</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="engine">נפח מנוע (סמ"ק)</label>
+                            <input type="number" id="engine" name="engine_capacity" value="1600"
+                                   min="800" max="6000" step="100">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="city">עיר</label>
+                            <input type="text" id="city" name="city" placeholder="תל אביב">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary" id="predictBtn">
+                        <span class="btn-text">חשב מחיר</span>
+                        <span class="loader" style="display: none;"></span>
+                    </button>
+                </form>
+            </div>
+
+            <div class="result-card" id="resultCard" style="display: none;">
+                <h2>תוצאת החיזוי</h2>
+                <div class="result-content">
+                    <div class="car-info">
+                        <h3 id="carTitle"></h3>
+                        <div class="car-details" id="carDetails"></div>
+                    </div>
+                    <div class="price-prediction">
+                        <div class="price-label">מחיר משוער:</div>
+                        <div class="price-value" id="predictedPrice">₪0</div>
+                        <div class="price-note">
+                            * מחיר משוער בלבד, המבוסס על ניתוח נתוני שוק
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>מערכת חיזוי מחירים מבוססת בינה מלאכותית | נתונים מאתר יד2</p>
+        </footer>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
