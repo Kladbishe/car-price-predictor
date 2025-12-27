@@ -76,8 +76,8 @@ model_year_ranges = {
     '323F': (1994, 1998),  # Mazda 323F BA production years
 }
 
-# Generate 5000 sample records (LARGE dataset for better AI training)
-for _ in range(5000):
+# Generate 15000 sample records (LARGE dataset for better AI training)
+for _ in range(15000):
     brand = np.random.choice(brands)
     model = np.random.choice(models_map[brand])
 

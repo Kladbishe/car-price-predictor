@@ -4,8 +4,8 @@ AI-powered car price prediction system for the Israeli market using Random Fores
 
 ## Features
 
-- **AI Price Prediction** - Random Forest model with 96.5% accuracy (R² = 0.965)
-- **30 Brands, 200+ Models** - Comprehensive database of 5,000 cars
+- **AI Price Prediction** - Random Forest model with 98.3% accuracy (R² = 0.983)
+- **30 Brands, 200+ Models** - Database of 15,000 synthetic cars
 - **Hebrew UI** - RTL interface with modern gradient design
 - **Real-time API** - RESTful Flask backend
 
@@ -35,23 +35,29 @@ Open http://localhost:5001
 
 ## Dataset
 
-- **Size**: 5,000 cars
+**Note: This project uses synthetic (generated) data, not real market data.**
+
+- **Size**: 15,000 synthetic car records
 - **Brands**: Toyota, Mazda, Honda, BMW, Mercedes, Audi, Tesla, and 23 more
-- **Features**: Brand, Model, Year, Mileage, Owners, Engine, City, Rarity
+- **Models**: 200+ car models across all brands
+- **Features**: Brand, Model, Year, Mileage, Owners, Engine, City, Rarity Score
+- **Price Calibration**: Generated using realistic depreciation curves and brand multipliers based on Israeli market observations
+
+The synthetic data is designed to simulate realistic pricing patterns but may not reflect actual Yad2 market prices.
 
 ## Model Performance
 
 ```
-R² Score: 0.965
-MAE: ₪14,885
-RMSE: ₪21,654
+R² Score: 0.983
+MAE: ₪6,773
+RMSE: ₪10,319
 ```
 
 **Feature Importance:**
-- Rarity Score: 36.6%
-- Year: 22.7%
-- Mileage: 19.5%
-- Owners (Hand): 7.9%
+- Rarity Score: 39.5%
+- Year: 21.6%
+- Mileage: 17.6%
+- Owners (Hand): 8.3%
 
 ## API Endpoints
 
